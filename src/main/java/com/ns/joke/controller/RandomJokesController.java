@@ -1,7 +1,7 @@
 package com.ns.joke.controller;
 
-import com.ns.joke.dto.downstream.JokeResponse;
-import com.ns.joke.service.RandomJokesService;
+import com.ns.joke.dto.downstream.response.JokeResponse;
+import com.ns.joke.service.downstream.RandomJokesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,6 @@ public class RandomJokesController {
 
     @GetMapping
     public ResponseEntity<JokeResponse> getJokes() {
-        //http://localhost:8080/joke
         JokeResponse joke = randomJokesService.getJoke();
         return new ResponseEntity<>(joke, HttpStatus.OK);
     }

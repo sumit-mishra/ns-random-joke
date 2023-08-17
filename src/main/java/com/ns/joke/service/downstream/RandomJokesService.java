@@ -1,13 +1,15 @@
-package com.ns.joke.service;
+package com.ns.joke.service.downstream;
 
-import com.ns.joke.dto.downstream.JokeResponse;
+import com.ns.joke.dto.downstream.response.JokeResponse;
 import com.ns.joke.dto.upstream.response.Joke;
 import com.ns.joke.dto.upstream.response.JokeApiResponse;
+import com.ns.joke.service.cache.JokeCache;
 import com.ns.joke.service.upstream.JokeApiClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -32,7 +34,9 @@ public class RandomJokesService {
     private String blacklistFlags;
 
     private final JokeApiClient jokeApiClient;
+    private final JokeCache jokeCache;
 
+    @CachePut(value="JokeResponse", key="#result.id()", unless="#result.randomJoke().length() > 100")
     @CircuitBreaker(name = "RandomJokesService", fallbackMethod = "getRandomJokeFromCache")
     public JokeResponse getJoke() {
         Optional<JokeApiResponse> jokeApiResponse = jokeApiClient.getJokes(category,
@@ -41,7 +45,7 @@ public class RandomJokesService {
                                                                            blacklistFlags,
                                                                            format,
                                                                            amount);
-        return jokeApiResponse.map(this::getOneJoke).orElse(getRandomJokeFromCache());
+        return jokeApiResponse.map(this::getOneJoke).orElseGet(this::getRandomJokeFromCache);
     }
 
     private JokeResponse getOneJoke(JokeApiResponse jokeApiResponse) {
@@ -54,15 +58,15 @@ public class RandomJokesService {
         return new JokeResponse(shortestJoke.id(), shortestJoke.joke());
     }
 
+    private JokeResponse getRandomJokeFromCache() {
+        log.error("RandomJokesService::getRandomJokeFromCache, jokeApiClient resulted might have resulted with 'null' response");
+        return jokeCache.getRandomJoke();
+    }
+
     private JokeResponse getRandomJokeFromCache(Exception e) {
         log.error("RandomJokesService::getRandomJokeFromCache, jokeApiClient resulted in exception : {}", e.getMessage());
         log.info("RandomJokesService::getRandomJokeFromCache, upstream api did not send valid response, fetching jokes from cache.");
         return getRandomJokeFromCache();
-    }
-
-    private JokeResponse getRandomJokeFromCache() {
-        // TODO : get joke from cache
-        return new JokeResponse(101, "I have so many important to do in my life, so I am reading jokes here!!");
     }
 
 }
