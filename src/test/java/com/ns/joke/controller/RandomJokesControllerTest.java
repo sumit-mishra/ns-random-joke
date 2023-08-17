@@ -20,7 +20,6 @@ public class RandomJokesControllerTest {
 
     @MockBean
     RandomJokesService randomJokesService;
-
     @Autowired
     private MockMvc mvc;
 

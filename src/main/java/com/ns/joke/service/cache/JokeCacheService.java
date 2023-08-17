@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
-public class JokeCache {
+public class JokeCacheService {
     private final CacheManager cacheManager;
 
     public JokeResponse getRandomJoke() {
@@ -19,7 +19,7 @@ public class JokeCache {
                                                                                            .getNativeCache();
         Object[] jokeCachedIndexes = cachedJokeResponse.keySet().toArray();
         if (jokeCachedIndexes.length < 1) {
-            throw new EmptyCacheException("JokeCache is empty of JokeResponse.");
+            throw new EmptyCacheException("JokeCacheService is empty of JokeResponse.");
         }
         int randomJokeIndex = (int) jokeCachedIndexes[new Random().nextInt(jokeCachedIndexes.length)];
         return (JokeResponse) cachedJokeResponse.get(randomJokeIndex);

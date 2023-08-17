@@ -3,7 +3,7 @@ package com.ns.joke.service.downstream;
 import com.ns.joke.dto.downstream.response.JokeResponse;
 import com.ns.joke.dto.upstream.response.Joke;
 import com.ns.joke.dto.upstream.response.JokeApiResponse;
-import com.ns.joke.service.cache.JokeCache;
+import com.ns.joke.service.cache.JokeCacheService;
 import com.ns.joke.service.upstream.JokeApiClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
@@ -34,10 +34,10 @@ public class RandomJokesService {
     private String blacklistFlags;
 
     private final JokeApiClient jokeApiClient;
-    private final JokeCache jokeCache;
+    private final JokeCacheService jokeCacheService;
 
     @CachePut(value="JokeResponse", key="#result.id()", unless="#result.randomJoke().length() > 100")
-    @CircuitBreaker(name = "RandomJokesService", fallbackMethod = "getRandomJokeFromCache")
+    @CircuitBreaker(name = "RANDOM_JOKE_SERVICE", fallbackMethod = "getRandomJokeFromCache")
     public JokeResponse getJoke() {
         Optional<JokeApiResponse> jokeApiResponse = jokeApiClient.getJokes(category,
                                                                            jokeType,
@@ -60,7 +60,7 @@ public class RandomJokesService {
 
     private JokeResponse getRandomJokeFromCache() {
         log.error("RandomJokesService::getRandomJokeFromCache, jokeApiClient resulted might have resulted with 'null' response");
-        return jokeCache.getRandomJoke();
+        return jokeCacheService.getRandomJoke();
     }
 
     private JokeResponse getRandomJokeFromCache(Exception e) {
