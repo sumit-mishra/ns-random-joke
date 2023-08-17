@@ -13,16 +13,6 @@ spring:
             readTimeout: 5000
             connectTimeout: 5000
 
-ns:
-  default:
-    format: json
-    safe-mode: true
-    joke-type: single
-    joke-amount: 16
-    joke-category: Any
-    blacklist-flags: sexist,explicit
-    joke-source-url: https://v2.jokeapi.dev
-
 management:
   endpoints.web.exposure.include:
     - '*'
