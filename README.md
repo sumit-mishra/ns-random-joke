@@ -52,7 +52,7 @@ During the development the code was continuously refactored.
 
 - As I gradually implemented the code, calling the external API and filtering is achieved in one step i.e. through
   utilising API
-  request parameter supports. ![img.png](images/open_feign.png)
+  request parameter supports. ![open_feign.png](images/open_feign.png)
 
 - As mentioned above in Step 1, control flow, it felt like a template-pattern design but as I progressed for
   refactoring, made the code smaller and easy.
@@ -62,9 +62,9 @@ During the development the code was continuously refactored.
 - **Isolate**, **Improve** & **Inline** : iteratively improved the code
 
 * **Java Records** are used for DTO. Sorting the jokes by length was achieved when the api response object was created.
-  ![img1.png](images/joke_api_response_record.png) 
+  ![joke_api_response_record.png](images/joke_api_response_record.png) 
 
-  ![img2.png](images/joke_record.png)
+  ![joke_record.png](images/joke_record.png)
   <br /><br />
 
 * **Fallback scenarios are leveraged through resilience4j**<br />
