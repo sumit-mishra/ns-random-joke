@@ -1,0 +1,47 @@
+spring:
+  application.name: ns-random-joke
+  profiles:
+    active: dev
+  main:
+    banner-mode: off
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: basic
+            readTimeout: 5000
+            connectTimeout: 5000
+
+ns:
+  default:
+    format: json
+    safe-mode: true
+    joke-type: single
+    joke-amount: 16
+    joke-category: Any
+    blacklist-flags: sexist,explicit
+    joke-source-url: https://v2.jokeapi.dev
+
+management:
+  endpoints.web.exposure.include:
+    - '*'
+  endpoint.health.show-details: always
+  health.circuitbreakers.enabled: true
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
+logging:
+  level:
+    com.ns.joke: DEBUG
+    org.springframework: ERROR
