@@ -62,9 +62,8 @@ During the development the code was continuously refactored.
 - **Isolate**, **Improve** & **Inline** : iteratively improved the code
 
 * **Java Records** are used for DTO. Sorting the jokes by length was achieved when the api response object was created.
-  ![joke_api_response_record.png](images/joke_api_response_record.png) 
-
-  ![joke_record.png](images/joke_record.png)
+  ![joke_api_response_record](https://github.com/sumit-mishra/ns-random-joke/assets/14976827/e1422f8c-83e1-4182-abe6-f733115629f6)
+  ![joke_record](https://github.com/sumit-mishra/ns-random-joke/assets/14976827/4cfb6250-a22a-49b6-9dbc-f89a202b9c18)
   <br /><br />
 
 * **Fallback scenarios are leveraged through resilience4j**<br />
