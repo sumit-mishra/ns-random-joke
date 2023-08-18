@@ -1,0 +1,166 @@
+{
+  "error": false,
+  "amount": 10,
+  "jokes": [
+    {
+      "category": "Pun",
+      "type": "single",
+      "joke": "A horse walks into a bar.\n\"Hey\", the Bartender says.\n\"Sure\", the horse replies.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 74,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Misc",
+      "type": "single",
+      "joke": "Relationship Status: just tried to reach for my dog's paw and he pulled it away so I pretended I was reaching for the remote.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "racist": false,
+        "sexist": false,
+        "political": false,
+        "explicit": false
+      },
+      "id": 195,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Programming",
+      "type": "single",
+      "joke": "\"Honey, go to the store and buy some eggs.\"\n\"OK.\"\n\"Oh and while you're there, get some milk.\"\nHe never returned.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 18,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Dark",
+      "type": "single",
+      "joke": "Dark humor is like food, not everyone gets it.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": true,
+        "sexist": false,
+        "explicit": true
+      },
+      "id": 162,
+      "safe": false,
+      "lang": "en"
+    },
+    {
+      "category": "Misc",
+      "type": "single",
+      "joke": "If you're here for the yodeling lesson, please form an orderly orderly orderly queue.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 139,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Pun",
+      "type": "single",
+      "joke": "Oysters hate to give away their pearls because they are shellfish.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 90,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Pun",
+      "type": "single",
+      "joke": "To whoever stole my copy of Microsoft Office, I will find you. You have my Word!",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 191,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Programming",
+      "type": "single",
+      "joke": "Programming is 10% science, 20% ingenuity, and 70% getting the ingenuity to work with the science.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 37,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Misc",
+      "type": "single",
+      "joke": "My parents raised me as an only child, which really annoyed my younger brother.",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 235,
+      "safe": true,
+      "lang": "en"
+    },
+    {
+      "category": "Programming",
+      "type": "single",
+      "joke": "A guy walks into a bar and asks for 1.4 root beers.\nThe bartender says \"I'll have to charge you extra, that's a root beer float\".\nThe guy says \"In that case, better make it a double.\"",
+      "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+      },
+      "id": 2,
+      "safe": true,
+      "lang": "en"
+    }
+  ]
+}

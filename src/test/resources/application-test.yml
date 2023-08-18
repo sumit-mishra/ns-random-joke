@@ -1,0 +1,9 @@
+ns:
+  default:
+    format: json
+    safe-mode: true
+    joke-type: single
+    joke-amount: 9
+    joke-category: Any
+    blacklist-flags: sexist,explicit
+    joke-source-url: http://localhost:9090
